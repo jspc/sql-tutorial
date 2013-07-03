@@ -1,0 +1,14 @@
+# Editor  files
+*~
+*#
+
+# Now do the presentation bits
+presentations/*
+notes/*
+!presentations/*.tex
+!presentations/*.pdf
+!presentations/*.md
+!notes/*.tex
+!notes/*.pdf
+!notes/*.md
+
