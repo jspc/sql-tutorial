@@ -1,0 +1,83 @@
+\documentclass{beamer}
+
+% \usepackage{beamerthemesplit} // Activate for custom appearance
+
+\usetheme{Szeged}
+\usefonttheme{professionalfonts}
+\usecolortheme{rose}
+
+\title{Basic Searching}
+\author{James Condron}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Intro}
+\frame{
+  \frametitle{Basics and CRUD}
+  {\Large C} reate    \\
+  {\Large R} ead      \\
+  {\Large U} pdate   \\
+  {\Large D} elete
+}
+
+\frame{\tableofcontents}
+
+\subsection{Overview}
+\frame {
+  \frametitle{Reading from our Database}
+  \begin{itemize}
+    \item <1-> Reading all data
+    \item <2-> Searching for partial data
+    \item <3-> Ordering what we've found
+  \end{itemize}
+}
+
+\section{Practicals}
+\subsection{select}
+\frame{
+  We use the $\mathtt{select}$ verb \\
+  This takes the columns we want, the table an optional search term
+}
+\frame{
+  $\mathtt{select}$ $\mathtt{*}$ $\mathtt{from}$ $\mathtt{mytable}$ \\
+  $\mathtt{select}$ $\mathtt{id}$ $\mathtt{from}$ $\mathtt{mytable}$ \\
+  $\mathtt{select}$ $\mathtt{*}$ $\mathtt{from}$ $\mathtt{mytable}$ $\mathtt{where}$ $\mathtt{forename='Eli'}$ \\
+}
+\subsection{partial data}
+\frame{
+  Quite often we want to search for data which matches a certain pattern \\
+  Perhaps we want to find email addresses on a certain domain \\
+  Perhaps we're looking for mobile phone numbers \\
+  We use the verb $\mathtt{like}$ to do this
+}
+\frame{
+  $\mathtt{select}$ $\mathtt{*}$ $\mathtt{from}$ $\mathtt{mytable}$
+  $\mathtt{where}$ $\mathtt{emailaddr}$ $\mathtt{like}$
+  $\mathtt{"\%.hotmail.com"}$ \\
+  $\mathtt{select}$ $\mathtt{*}$ $\mathtt{from}$ $\mathtt{mytable}$
+  $\mathtt{where}$ $\mathtt{emailaddr}$ $\mathtt{like}$
+  $\mathtt{"\%.hotmail.\%"}$ \\
+  $\mathtt{select}$ $\mathtt{*}$ $\mathtt{from}$ $\mathtt{mytable}$
+  $\mathtt{where}$ $\mathtt{name}$ $\mathtt{like}$ $\mathtt{"E\%"}$ \\
+}
+\subsection{ordering}
+\frame{
+  We can order two ways:
+  \begin{itemize}
+    \item <1-> $\mathtt{asc}$ - ascending
+    \item <2-> $\mathtt{desc}$ - descending
+    \item <3-> We can also limit the data coming back
+  \end{itemize}
+}
+\frame{
+  $\mathtt{select}$ $\mathtt{*}$ $\mathtt{from}$ $\mathtt{users}$
+  $\mathtt{order}$ $\mathtt{by}$ $\mathtt{forename}$ $\mathtt{asc}$ \\
+  $\mathtt{select}$ $\mathtt{*}$ $\mathtt{from}$ $\mathtt{users}$
+  $\mathtt{order}$ $\mathtt{by}$ $\mathtt{forename}$ $\mathtt{asc}$
+  $\mathtt{limit}$ $\mathtt{10}$ \\
+}
+
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{color,palatino,avant}
+\usepackage[margin=0.5in]{geometry}
+
+\begin{document}
+\title{Searching a Database}
+\author{James Condron}
+\maketitle
+
+\begin{abstract}
+In this we shall learn how to connect to our database, search for data and figure out what does what.
+\end{abstract}
+
+\subsection{Connecting}
+We use the mysql command; we can give it a username, a password and a database name as per: \\
+
+{\tt mysql -uUSERNAME -pPASSWORD DATABASE } \\
+
+By specifying '-p' without giving a password asks us for our password. So: \\
+
+{\tt mysql -ueli -p our\_game\_company } \\
+
+Will connect you to our database and ask for your password. \\
+
+At this point use the command \\
+
+{\tt show tables } \\
+
+To see what tables we have in our database. You can see what each of these tables looks like with: \\
+
+{\tt describe table\_name } \\
+
+\subsection{Searching}
+
+\begin{enumerate}
+\item How many scoring games have been played? (Hint: use  {\tt select count(*)} )
+\item How many people have signed up with {\tt hotmail.com} accounts?
+\item Which username is alphabetically first in our database?
+\item How many users do we have from Albania?
+\end{enumerate}
+
+
+\subsection{Extra Credit}
+\begin{enumerate}
+\item Why would we use {\tt count} to count rows?
+\item How does doing a {\tt select} on a single column compare to doing a {\tt select *} ?
+\end{enumerate}
+
+\end{document}
