@@ -31,6 +31,6 @@ namespace :compile do
 
   desc 'Do the notes'
   task :notes do
-    compile %{notes}
+    compile %w{notes}
   end
 end
