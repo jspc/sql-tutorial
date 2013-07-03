@@ -18,6 +18,11 @@ task :compile do
   compile %w{presentations notes}
 end
 
+desc 'Populate DB'
+task :populate do
+  sh File.join(File.dirname(__FILE__), 'tools', 'db_up.rb')
+end
+
 namespace :compile do
   desc 'Do the presentations'
   task :presentations do
