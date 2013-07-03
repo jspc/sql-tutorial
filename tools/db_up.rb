@@ -7,7 +7,7 @@ require 'csv'
 require 'date'
 
 max = ENV['RUNS'] || 500000
-db  = Mysql2::Client.new(:host => "localhost", :username => "jspc", :password => "JpC304scuN", :database => "our_game_company")
+db  = Mysql2::Client.new(:host => "localhost", :username => ENV['SQL_USER'], :password => ENV['SQL_PW]', :database => "our_game_company")
 
 sexes       = ['M', 'F', 'N']
 clean_words = File.open( File.join(File.dirname(__FILE__), 'csv/words.txt' ), 'r' ).readlines
