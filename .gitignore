@@ -5,10 +5,16 @@
 # Now do the presentation bits
 presentations/*
 notes/*
+
 !presentations/*.tex
 !presentations/*.pdf
 !presentations/*.md
+!presentations/images
+!presentations/images/*
+
 !notes/*.tex
 !notes/*.pdf
 !notes/*.md
+!notes/images
+!notes/images/*
 

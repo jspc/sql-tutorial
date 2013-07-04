@@ -6,7 +6,11 @@ require 'rake'
 def compile wda
   wda.each do |wd|
     Dir.chdir( File.join(File.dirname(__FILE__), wd) ) do
-      sh "texi2pdf *.tex"
+      Dir.glob("*.tex").each do |f|
+        sh "texi2pdf #{f}" do  |(ok,res)| 
+          exit if not ok
+        end
+      end
     end
   end
 end
