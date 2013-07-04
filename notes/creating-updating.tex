@@ -1,0 +1,51 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{color,palatino,avant}
+\usepackage[margin=0.5in]{geometry}
+
+\begin{document}
+\title{Creating stuff on our Database}
+\author{James Condron}
+\date{04-07-2013}
+\maketitle
+
+\begin{abstract}
+This session we're going to add data to our database, replace data to our database and maybe do some shit.
+\end{abstract}
+
+\subsection{Constraints}
+
+To see our constraints we can use our old friend {\tt describe table\_name}:
+
+\begin{verbatim}
+mysql> describe users;
++----------+-------------------+------+-----+---------+-------+
+| Field    | Type              | Null | Key | Default | Extra |
++----------+-------------------+------+-----+---------+-------+
+| username | varchar(32)       | NO   | PRI | NULL    |       |
+| city     | tinytext          | NO   |     | NULL    |       |
+| country  | tinytext          | NO   |     | NULL    |       |
+| sex      | enum('M','F','N') | NO   |     | NULL    |       |
+| email    | varchar(256)      | NO   |     | NULL    |       |
+| signup   | datetime          | NO   |     | NULL    |       |
++----------+-------------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+\end{verbatim}
+
+\subsection{Inserting}
+
+\begin{enumerate}
+\item Create a new game (Hint: the date will be {\tt 2013-07-04})
+\item Try and create the same game again with a different description. What happens?
+\item Order the users table by city, take the first one, and set that user's score on the new game to 9999
+\end{enumerate}
+
+\subsection{Updating}
+
+\begin{enumerate}
+\item How many users from United Kingdom wont tell us their sex?
+\item Lets assume they're all actually women. Set them as women. How many rows does it update?
+\item There has been a military coup in Egypt and the country has been renamed to `Gaytopia'. How many rows does changing this update?
+\item Uh-oh! The crazy French have invaded Germany and taken it over! Better update this. How many French users do we have now?
+\end{enumerate}
+
+\end{document}
